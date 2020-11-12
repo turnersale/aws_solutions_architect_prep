@@ -239,29 +239,104 @@
         *  ML inference
      *  C6g and C6gd
         *  Same as above but also CPU inference and distributed analytics
-  *  Memory optimized
-     *  R5, R5a and R5n
-        *  High performance relationa; (MySQL) and NoSQL (MongoDB, Cassandra) DBs
-        *  Distributed web scale cache stores with key-value memory caching (Memcached and Redis)
-        *  In-mem DBs like SAP HANA
-        *  Real time big data processing like Hadoop and Spark
-        *  HPC and Electronic Design Automation
-     *  R6 and R6gd
-        *  Open source DBs (MySQL, MariaDB and PostgresSQL)
-        *  In-mem caches
-     *  High memory
-        *  Up to 24 TiB per instance
-        *  Optimized for in-mem DBs like SAP HANA
-     *  X1
-        *  In-mem DBs
-        *  Big data processing
-        *  HPC
-     *  X1e
-        *  High performance DBs
-        *  In-mem DBs
-     *  z1d
-        *  Electronic Design Automation
-        *  Relational DBs
+    *  Memory optimized
+       *  R5, R5a and R5n
+          *  High performance relationa; (MySQL) and NoSQL (MongoDB, Cassandra) DBs
+          *  Distributed web scale cache stores with key-value memory caching (Memcached and Redis)
+          *  In-mem DBs like SAP HANA
+          *  Real time big data processing like Hadoop and Spark
+          *  HPC and Electronic Design Automation
+       *  R6 and R6gd
+          *  Open source DBs (MySQL, MariaDB and PostgresSQL)
+          *  In-mem caches
+       *  High memory
+          *  Up to 24 TiB per instance
+          *  Optimized for in-mem DBs like SAP HANA
+       *  X1
+          *  In-mem DBs
+          *  Big data processing
+          *  HPC
+       *  X1e
+          *  High performance DBs
+          *  In-mem DBs
+       *  z1d
+          *  Electronic Design Automation
+          *  Relational DBs
+    *  Storage optimized
+       *  D2
+          *  Massive parallel processing (MPP) data warehouse
+          *  MapReduce and Hadoop
+          *  Logs or data processing
+       *  H1
+          *  MapReduce and HDFS
+          *  Sequential, large volume access to direct attached storage
+          *  High throughput
+       *  I3 and I3en
+          *  High frequency OLTP 
+          *  Relational DB
+          *  NoSQL DB
+          *  Cache for in-mem DB
+          *  Data warehousing
+          *  HDFS
+    *  Accelerated computing
+       *  Uses hardware accelerators like GPUs and co-processors
+       *  GPU instances
+          *  G4
+             *  Tesla GPUs
+             *  Best for CUDA and ML
+             *  16GB per GPU
+          *  G3
+             *  Tesla M60 GPUs
+             *  Best for virtualized desktops, GRID applications, 3D rendering
+          *  G2
+             *  Grid K520 GPUs
+             *  Video creation
+          *  P4
+             *  A100
+             *  ML and HPC
+             *  400gbps
+             *  Elastic Fabric Adapter (EFA)
+          *  P3
+             *  V100
+             *  General purpose and deep learning
+             *  32GB of memory
+          *  P2
+             *  K80
+       *  AWS Inferentia instances
+          *  Designed to accelerate machine learning with high performance and low latency inference
+          *  Specifically designed for deep learning inference
+          *  Multiple ways to access:
+             *  SageMaker
+             *  Inf1 with Deep Learning AMI
+             *  Inf1 instance with Neuron SDK
+             *  Container using Inf1 instance and ECS optimized AMI
+             *  EKS cluster with Inf1 instances
+          *  Inf1
+             *  Inferentia custom designed chip
+       *  FPGA instances
+          *  Accelerate things like genomics, financial analysis, video processing and security
+          *  F1
+             *  Xilinx UltraScale+ VU9P FPGAs
+             *  2.5 million logic units
+             *  6800 Digital Signal Processors (DSP)
+             *  64GB of ECC RAM
+       *  NVIDIA drivers
+          *  Main types:
+             *  Tesla
+             *  GRID
+             *  Gaming
+          *  Can be installed by using an AMI or by installing public drivers
+       *  You can also install other variant of CUDA
+  *  Recommendations
+     *  Compute Optimizer offers instance recommendations based on performance, money or a mixture
+     *  Generally only considers M, C, R, T and X types
+     *  Will classify an instance as:
+        *  Under-provisioned
+        *  Over-provisioned
+        *  Optimized
+        *  None
+*  Monitoring
+   *  
 
 ## Terminology
 * EC2 = Elastic Compute Cloud
@@ -275,3 +350,5 @@
 * HVM = hardware virtual machine
 * DB = database
 * HPC = High Performing Compute
+* EFA = Elastic Fabric Adapter
+* EKS = Elastic Kubernetes Service
