@@ -336,7 +336,94 @@
         *  Optimized
         *  None
 *  Monitoring
-   *  
+   *  Monitoring plan should include:
+      *  Goals
+      *  Resources to monitor
+      *  Frequency of monitoring
+      *  Monitoring tools
+      *  Who is responsible
+      *  Who should be notified
+   *  Minimum monitoring:
+      *  CPU Utilization
+      *  Network utilization
+      *  Disk performance
+      *  Disk read/writes
+   *  Automating monitoring tools
+      *  System status checks
+      *  Instance status checks
+      *  CloudWatch alarms
+         *  Watches a single metric over a specified period
+         *  Notifications are sent through Simple Notification Service (SNS) or auto-scaling policies
+      *  CloudWatch events
+         *  Near real-time
+         *  Automatic actions based on specifications
+      *  CloudWatch logs
+         *  Monitor and store logs across AWS services
+      *  CloudWatch agent
+         *  Collects logs and system metrics from hosts and guests
+      *  AWS Management Pack for Microsoft System Center Operations Manager
+   *  Manual monitoring tools
+      *  EC2 dashboard
+         *  Service health and scheduled events by region
+         *  Instance state
+         *  Status checks
+         *  Alarm status
+         *  Instance metric details
+         *  Volume metric details
+      *  CloudWatch dashboard
+         *  Current alarms and status
+         *  Graphs of alarms and resources
+         *  Service health status
+   *  Best practices
+      *  Make monitoring a priority to head off small issues before they become big ones
+      *  Implement a plan that collects data from all parts of the AWS solution
+      *  Automate monitoring as much as possible
+      *  Check log files regularly
+   *  Instance status checks
+      *  Automatically performed on all EC2 running instances
+      *  Includes: pending, running, and stopping as well as CloudWatch metrics
+      *  Performed every minute
+      *  When a check fails, the CloudWatch metric is incremented
+      *  Can be used to trigger and event that recovers the instance\
+   *  Scheduled events
+      *  Can schedule reboots, starts, stops, retirements
+      *  Emails are sent prior to event
+      *  Managed by AWS, not scheduled on your own
+      *  Types of events:
+         *  Instance stop
+         *  Instance retirement
+         *  Instance reboot
+         *  System reboot
+         *  System maintenance
+   *  CloudWatch
+      *  Near real-time metrics 
+      *  Stored for 15 months for historical record keeping
+      *  Default is 5 minute period
+      *  Can be increased to 1 minute intervals
+         *  This is called detailed monitoring and must specifically be enabled per instance
+         *  Charged per metric sent to CloudWatch but not the storage
+         *  Pricing only on the detailed monitoring tier
+      *  Available metrics
+         *  See [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html)
+      *  Statistics can be done on an instance based level or can be aggregated by AMI, all instances, Auto Scaling groups, etc.
+      *  Graphs are also automatically generated in the AWS console and the CloudWatch console
+      *  Alarms can be configured to send notifications when a metric reaches a defined threshold
+      *  Alarms can also be used to trigger reboots, starts, stops and terminations on an instance basis
+   *  EventBridge
+      *  Can be used to receive near real-time metrics and trigger other services, such as:
+         *  Invoke AWS Lambda
+         *  Invoke EC2 run command
+         *  Relay the event to Kinesis
+         *  Activate a Step Functions state machine
+         *  Notify an SNS topic or SQS queue
+      *  Example:
+         *  Notify an SNS topic when a new EC2 instance starts
+   *  CloudTrail
+      *  Provides records for all actions taken by a user, role, or AWS service in EC2
+      *  Can enable continuous delivery to an S3 bucket for storage or view only the most recent events in the CloudTrail console
+      *  Log file setups and configuration can be found [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-with-cloudtrail.html)
+* Networking
+  *  
 
 ## Terminology
 * EC2 = Elastic Compute Cloud
@@ -352,3 +439,8 @@
 * HPC = High Performing Compute
 * EFA = Elastic Fabric Adapter
 * EKS = Elastic Kubernetes Service
+* SNS = Simple Notification Service
+* CloudWatch = Event and metric monitoring system
+* EventBridge = Event monitoring and action triggering system
+* SQS = Simple Queue Service
+* CloudTrail = Service for capturing API calls
