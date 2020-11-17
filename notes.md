@@ -423,6 +423,41 @@
       *  Can enable continuous delivery to an S3 bucket for storage or view only the most recent events in the CloudTrail console
       *  Log file setups and configuration can be found [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-with-cloudtrail.html)
 * Networking
+  *  EC2 and VPC both support IPv4 and IPv6 protocols
+  *  By default the IPv4 protocol is used and cannot be disabled
+  *  Private IPs are not reachable over the internet, but can be used for communication inside the VPC
+  *  Each instance is given an internal IP and a DNS host name
+  *  You can provide an internal IP address if you choose, if not AWS will assign an IP from the subnet
+  *  Each instance has a default network interface (eth0) that is assigned the IP
+     *  The NIC and IP remain associated when an instance is stopped, started or hibernates
+     *  Termination of the instance releases the IP
+  *  External IPs can also be assigned and will receive an external DNS hostname
+     *  The DNS hostname is resolved to the internal IP using NAT
+  *  The default VPC provides public IPs by default, while subnets can be set to provide them or not
+  *  Public IPs can be generated or removed during instance launch
+  *  Public IPs are retained by AWS and are not associated to your AWS account
+  *  Elastic IP addresses are public IPv4 addresses that can be allocated to your account and can be associated or removed from instances as required
+     *  See more [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+  *  Multiple private addresses can be assigned to an instance depending on the instance type and network adapters
+     *  Useful for:
+        *  Hosting multiple websites on a single server
+        *  Network appliances such as firewalls or load balancers
+        *  Redirect internal traffic to a standby instance (in case one instance fails)
+  *  Bring Your Own IP (BYOIP)
+     *  Available in all regions
+     *  Assigned to AWS account and advertised online by default
+     *  Must be registered with the Regional Internet Registry (RIR)
+     *  See more [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html)
+  *  Elastic IPs
+     *  Accessible over the internet and are assigned to your until your release it
+     *  This is designed to provide a way to remap instances in an account without exposing the instance failure publicly
+     *  If you assign the Elastic IP to the primary NIC then the previously assigned public IP is released back into the AWS pool
+     *  There is a small hourly charge for retaining an Elastic IP if it is not assigned to an instance
+     *  Detailed implementation notes [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+  *  Elastic Network Interfaces
+     *  Logical networking component that represents a virtual network card
+     *  Each instance contains a default interface called the primary network interface
+     *  If EFA is enabled then all network cards become available for the instance
   *  
 
 ## Terminology
@@ -444,3 +479,7 @@
 * EventBridge = Event monitoring and action triggering system
 * SQS = Simple Queue Service
 * CloudTrail = Service for capturing API calls
+* DNS = Domain Name System
+* NAT = Network Address Translation
+* BYOIP = Bring Your Own IP
+* RIR = Regional Internet Registry
