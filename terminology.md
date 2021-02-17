@@ -1,0 +1,23 @@
+# Terminology
+* EC2 = Elastic Compute Cloud
+* AMI = Amazon Machine Image
+* EBS = Elastic Block Storage
+* VPC = Virtual Private Cloud
+* IAM = Identity and Access Management
+* AZ = Availability Zone
+* TTL = Time To Live
+* PV = paravirtual
+* HVM = hardware virtual machine
+* DB = database
+* HPC = High Performing Compute
+* EFA = Elastic Fabric Adapter
+* EKS = Elastic Kubernetes Service
+* SNS = Simple Notification Service
+* CloudWatch = Event and metric monitoring system
+* EventBridge = Event monitoring and action triggering system
+* SQS = Simple Queue Service
+* CloudTrail = Service for capturing API calls
+* DNS = Domain Name System
+* NAT = Network Address Translation
+* BYOIP = Bring Your Own IP
+* RIR = Regional Internet Registry
