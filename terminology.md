@@ -21,3 +21,4 @@
 * NAT = Network Address Translation
 * BYOIP = Bring Your Own IP
 * RIR = Regional Internet Registry
+* SSO = Single Sign-On

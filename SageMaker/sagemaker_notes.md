@@ -79,4 +79,23 @@
     * [Pricing](http://aws.amazon.com/sagemaker/pricing/)
     * [Endpoint Quotes](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html)
 * Get Started
+  * Create an AWS account
+    * This is needed for billing and access to all resources
+    * This is also called the root user
+  * Create and IAM Administrator User and Group
+    * The account allows access to all AWS resources, as such it is recommended to set up administrators and lock away the primary account for only the highest level functions
+  * Onboard users
+    * SageMaker console allows for either SSO or IAM users to be onboarded
+    * Simplest method is to use the Quick Start procedures
+    * SSO has a couple benefits over IAM
+      * Members have a unique sing-in URL that directly opens Studio while IAM requires the SageMaker console
+      * Organizations can manage members in SSO instead of SageMaker Studio
+    * Return to [documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html) to see the onboarding steps based on the method
+    * Choose a VPC
+      * By default, SageMaker uses a VPC for internet access and another for encrypted traffic between the domain and EFS volume
+      * It is possible to change this so all traffic can be sent over a single VPC
+        * This will require the subnets, security groups, and interface endpoints
+    * Delete a Domain
+      * In order to reset to pre-onboarding you must delete the created domain
+  * SageMaker JumpStart is a collection of solutions, models, algorithms and example notebooks designed for onboarding
   * 
