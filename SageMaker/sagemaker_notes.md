@@ -98,4 +98,63 @@
     * Delete a Domain
       * In order to reset to pre-onboarding you must delete the created domain
   * SageMaker JumpStart is a collection of solutions, models, algorithms and example notebooks designed for onboarding
-  * 
+* SageMaker Studio
+  * Web-based, IDE for machine learning that allows for building, training, debugging, deploying, and monitoring models
+  * UI Overview
+    * Extension of the JupyterLab interface
+    * Top section is the menu bar
+    * Left section is the left sidebar
+      * File Browser
+      * Running Terminals and Kernels
+      * Git
+      * Commands
+      * Notebook Tools
+      * Open Tabs
+      * SageMaker JumpStart
+      * SageMaker Components and Registries
+    * Right sectino is the right sidebar
+    * Left pane is the file and resource browser
+    * Right pane is a space for tabs for resources like notebooks, terminal, metrics and graphs
+  * Studio Launcher
+    * Can be used to start notebooks and text files, launch terminals and interactive Python shells
+  * Studio Notebooks
+    * Designed to be collaborative and launched quickly
+    * Fast launch types are designed to launch in less than two minutes
+    * Notebooks provide persistent storage even when instances are shut down
+    * You can also provide read-only URLs to other users
+    * Notebooks run in an environment defined by:
+      * EC2 instance type - hardware resources
+      * SageMaker image - container image that consists of kernels, language packages and other files
+      * KernelGateway - image runs as a KernelGateway app
+      * Kernel - process that inspects and runs the code in the notebook, which contains a kernel spec
+  * Studio Notebooks vs. Notebook Instances
+    * It is recommended to use the Studio instead of the console
+      * Studio start up is faster (5-10 times)
+      * Notebook sharing is an integrated feature
+      * Come pre-installed with the latest Python SDK
+      * Accessed from within the Studio, which speeds up other functions
+      * Each member gets their own home directory and EFS mount
+      * When using SSO you can go direct to the Studio
+      * Equipped with a set of predefined image settings
+  * Create or Open a Notebook
+    * CPU based images default to an ml.t3.medium instance
+    * GPU based images default to an ml.g4dn.xlarge instance
+    * You can only have one instance of each instance type running, but each image can run multiple kernels or terminal instances
+  * Use the Toolbar
+    * Save and checkpoint
+    * Insert cell
+    * Cut, copy, and paste cells
+    * Run cells
+    * Interrupt kernel
+    * Restart kernel
+    * Cell type
+    * Launch terminal
+    * Checkpoint diff
+    * Git diff
+    * Instance type
+    * Kernel and SageMaker Image
+    * CPU and memory of the kernel or instance
+    * Kernel busy status
+    * Share notebook
+  * Share and Use a Notebook
+    * 

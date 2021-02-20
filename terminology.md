@@ -22,3 +22,4 @@
 * BYOIP = Bring Your Own IP
 * RIR = Regional Internet Registry
 * SSO = Single Sign-On
+* IDE = integrated development environment
